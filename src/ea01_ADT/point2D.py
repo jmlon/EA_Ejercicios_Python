@@ -10,6 +10,7 @@
 
 import math
 
+
 class Point2D:
     """Class representing points in the plane
     """
@@ -48,8 +49,16 @@ class Point2D:
         return None
     
     def __eq__(self, other:'Point2D') -> bool:
-        """Returns True if self==other (or very close to)
+        """Equality between instances of Point2D
+
+        Returns True if the points are the same
         """
-        if self.distance(other)<1E-15:
+        if other is None:
+            return False
+        if not(isinstance(other,Point2D)):
+            return False
+        if self.distance(other)<1E-12:
             return True
         return False
+    
+
